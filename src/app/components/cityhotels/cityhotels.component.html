@@ -1,0 +1,18 @@
+<div class="sort" >
+  <button pButton (click)="sortByRating()">Sort By Orders</button>
+</div>
+<div class="citiesCard"  *ngFor="let data of reviewDataArray" >
+      <p-card header="{{data.hotelName}}" subheader="{{data.hotelname}}" *ngIf="cityName" (click)="showReview(data.hotelName)">
+        <ng-template pTemplate="header">
+          <img src="{{data.url}}" alt="img">
+        </ng-template>
+
+        <ng-template pTemplate="content">
+          <div class="pi pi-star-fill star">
+            Rating: {{ data.rating }}
+            <br><br>
+            <span class="pi pi-wifi"> {{ data.content}} </span>
+          </div>
+        </ng-template>      
+    </p-card>
+</div>

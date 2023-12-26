@@ -1,0 +1,67 @@
+*{
+    color: rgb(0, 0, 0);
+}
+
+.ng-header p{
+    letter-spacing: 1.5px;
+    margin:14% 300px 0 400px;
+    font-size: 50px;
+    font-weight: bolder;
+    color: white;
+}
+
+.native{
+    display: inline-flex;
+    justify-content: space-evenly;
+    margin: 45px 0 0 225px;
+
+}
+
+.native button{
+    color: white;
+    border-color: gray;
+    background-color: transparent;
+    transition:transform 0.5s ease;
+    letter-spacing: 1.5px;
+}
+
+.native button:hover{
+    transform: scale(1.3);
+}
+
+.citiesCard{
+    background-color: pink;
+    display:inline-flex;
+    margin:50px 0 0 130px;
+    transition: transform 0.5s ease;
+    button{
+        border-color: gray;
+        background-color: transparent;
+        transition:transform 0.5s ease;
+        letter-spacing: 1.5px;
+    }
+}
+
+.citiesCard:hover{
+    transform: scale(1.1);
+}
+
+.reviewCard{
+    display:inline-flex;
+    justify-content: center;
+    margin:50px 0 0 140px;
+    transition: transform 0.5s ease;
+}
+
+.reviewCard:hover{
+    transform: scale(1.1);
+}
+
+
+p-card{
+    width: 250px;
+    transition: transform 0.5s ease;
+    img{
+        height: 150px;
+    }
+}
