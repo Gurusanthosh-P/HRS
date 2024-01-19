@@ -1,0 +1,26 @@
+.card-form {
+    width: 50%;
+    margin:100px auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(200px);  
+    align-items: center;
+  }
+  
+  .p-float-label {
+    color: black;
+    margin-bottom: 30px;
+    width:20%;
+    display: inline;
+   }
+  
+  p-button {
+    margin-bottom: 7px;
+  }
+  

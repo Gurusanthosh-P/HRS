@@ -1,0 +1,8 @@
+Student:
+  Name: Santhosh
+  Age: 20
+  Department: IT
+  Subjects:
+    -Java: null
+    -Data structure: null
+    -Web Developement: -Front-End -Back-End

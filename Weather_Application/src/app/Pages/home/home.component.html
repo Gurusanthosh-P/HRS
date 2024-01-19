@@ -1,0 +1,15 @@
+ <ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Weather App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scrollY="false" class="custom-background">
+  <app-search (dataToShow)="sendToShow($event)" (showLocation)="showLocation($event)"></app-search>
+  <app-content [DataToContent]="DataToContent" [userLocation]="userLocation"></app-content>
+</ion-content>
+
+<app-footer></app-footer>
+
+
+
