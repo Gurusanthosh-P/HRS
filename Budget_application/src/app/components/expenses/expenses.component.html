@@ -20,9 +20,9 @@
 <div class="card">
     <div class="body">
         <p-table [value]="expense" [columns]="expensesHeaderData" [scrollable]="true" scrollHeight="400px">
-          <ng-template pTemplate="caption">
-              <div class="flex ">
-                  <span class="heading">
+          <ng-template pTemplate="caption" >
+              <div class="flex " >
+                  <span class="heading mr-auto">
                       <h3>Expenses Details</h3>
                   </span>
                   <span class="ml-auto">
@@ -32,7 +32,7 @@
           </ng-template>
             <ng-template pTemplate="header" let-headerData>
                 <tr>
-                    <th *ngFor="let head of headerData;let i=index" pSortableColumn="{{datakeys[i]}}" >{{head}}<p-sortIcon [field]="datakeys[i]" *ngIf="head"></p-sortIcon></th>
+                    <th *ngFor="let head of headerData;let i=index" pSortableColumn="{{datakeys[i]}}" [style]="{ 'background-color': 'grey' }">{{head}}<p-sortIcon [field]="datakeys[i]" *ngIf="head" [style]="{ color: 'black' }"></p-sortIcon></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-income>

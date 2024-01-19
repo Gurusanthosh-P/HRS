@@ -4,7 +4,7 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2vrTv70BlJEdPCsSHh_xRnP8VK5MbHVyzYw&usqp=CAU" />
         </ng-template>
         <ng-template pTemplate="center">
-            <div class="flex flex-wrap align-items-center gap-3">
+            <div class="flex">
                 <h1>Demo</h1>
             </div>        
         </ng-template>
@@ -19,7 +19,9 @@
     </p-toolbar>
 </div>
 
-
+<div class="content" *ngIf="!titleAccess">
+    <h1>Budget wisely, live freely.</h1>
+</div>
 
 <app-income *ngIf="access=='income'"></app-income>
 <app-expenses *ngIf="access=='expenses'"></app-expenses>

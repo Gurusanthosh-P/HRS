@@ -22,6 +22,7 @@ export const formData = {
     Type : 'Select Transaction Type',
     Name : 'Enter the Name',
     Amount:'Enter the Amount',
-    Month:'Select a Month'
+    Month:'Select a Month',
+    head:'Enter Your Income'
 }
     

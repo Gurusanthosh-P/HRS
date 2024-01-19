@@ -13,7 +13,7 @@
             </ng-template>
               <ng-template pTemplate="header" let-headerData>
                   <tr>
-                      <th *ngFor="let head of headerData;let i=index" pSortableColumn="{{datakeys[i]}}" >{{head}}<p-sortIcon [field]="datakeys[i]" *ngIf="head"></p-sortIcon></th>
+                      <th *ngFor="let head of headerData;let i=index" pSortableColumn="{{datakeys[i]}}" [style]="{ 'background-color': 'grey' }">{{head}}<p-sortIcon [field]="datakeys[i]" *ngIf="head"></p-sortIcon></th>
                   </tr>
               </ng-template>
               <ng-template pTemplate="body" let-income>

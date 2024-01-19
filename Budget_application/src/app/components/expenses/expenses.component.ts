@@ -27,7 +27,7 @@ export class ExpensesComponent implements OnInit{
 
     pichartData(){
         const documentStyle = getComputedStyle(document.documentElement);
-        const textColor = documentStyle.getPropertyValue('--text-color');
+        const textColor = getComputedStyle(document.documentElement).getPropertyValue('--pink-100').trim();
 
         this.data = {
             labels: ['Food', 'Rent', 'Vehicle'],

@@ -1,26 +1,76 @@
 .card-form {
-    width: 50%;
-    margin:100px auto;
+    margin: 50px auto;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(200px);  
     align-items: center;
+
+    span,
+    button {
+        letter-spacing: 2px;
+        margin-top: 30px;
+    }
+
+    button {
+        margin: 30px 0 -10px 0;
+        border-color: white;
+        color: white;
+        background-color: transparent;
+    }
+
+    &::ng-deep .p-inputnumber-input {
+      width: 240px;
+      background-color: transparent;
+      border-color: white;
+      color: white;
+      letter-spacing: 2px;
+      
+      &::placeholder{
+        color: white;
+      }
   }
-  
-  .p-float-label {
-    color: black;
-    margin-bottom: 30px;
-    width:20%;
-    display: inline;
-   }
-  
-  p-button {
-    margin-bottom: 7px;
-  }
+
+
+    input{
+      width: 240px;
+      background-color: transparent;
+      border-color: white;
+      color: white;
+      letter-spacing: 2px;
+      
+    }
+
+    input::placeholder{
+      color: white;
+    }
+
+    &::ng-deep .p-inputNumber-input{
+      width: 240px;
+      background-color: transparent;
+      border-color: white;
+      color: white;
+
+      .p-placeholder {
+          color: white;
+      }
+    }
+
+    &::ng-deep .p-dropdown{
+      width: 240px;
+      background-color: transparent;
+      border-color: white;
+      color: white;
+
+      .p-placeholder {
+          color: white;
+      }
+    }
+    
+}
+
+.head{
+  text-align: center;
+  color: white;
+  margin: 20px auto;
+}
+
   
