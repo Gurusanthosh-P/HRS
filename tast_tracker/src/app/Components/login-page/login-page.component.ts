@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { user } from 'src/app/contents/loginPage/loginpage';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login-page',
@@ -33,7 +34,11 @@ export class LoginPageComponent implements OnInit{
     {
       this.router.navigate(['home'])
       console.log(this.username,this.password);
+      Swal.fire('Login Success','Welcome','success')
     }
-    
+  }
+
+  signup(){    
+    this.router.navigate(['signup'])
   }
 }

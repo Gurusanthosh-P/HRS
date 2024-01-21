@@ -4,20 +4,20 @@
         </ng-template>
         <ng-template pTemplate="center">
             <div class="align-items-center">
-                <h1>Login</h1>
+                <h1>SignUp</h1>
             </div>
         </ng-template>
         <ng-template pTemplate="end">
             <div class="flex align-items-end user-access">
-                <button pButton id="log" label="SignUp" icon="pi pi-user" (click)="signup()"></button>
+                <button pButton id="log" label="Login" icon="pi pi-user" (click)="login()"></button>
             </div>
         </ng-template>
     </p-toolbar>
 </div>
-
 <div class="form align-items-center flex flex-column">
-    <span>
-        <p-dropdown [options]="User" styleClass="p-dropdown" [(ngModel)]="selectedUser" optionLabel="name"  placeholder="Select a Position"></p-dropdown>
+    <span class="p-input-icon-left">
+        <i class="pi pi-envelope"></i>
+        <input type="email" placeholder="Enter Your Email" pInputText [(ngModel)]="email" id="">
     </span>
     <span class="p-input-icon-left">
         <i class="pi pi-user"></i>
@@ -27,5 +27,6 @@
         <i class="pi pi-verified"></i>
         <input type="password" placeholder="Password" [(ngModel)]="password" pInputText name="" id="">
     </span>
-    <button pButton  (click)="login()" (window:keyUp.enter)="login()"  label="Login"></button>
+    <button pButton  (click)="signUp()" (window:keyUp.enter)="signUp()"  label="SignUp"></button>
 </div>
+

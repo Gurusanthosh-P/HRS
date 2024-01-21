@@ -1,5 +1,7 @@
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { LoaderService } from 'src/app/Services/loader/loader.service';
 import { ProductService } from 'src/app/Services/userData/product.service';
 
 @Component({
@@ -9,6 +11,8 @@ import { ProductService } from 'src/app/Services/userData/product.service';
 })
 export class HomePageComponent {
   productDialog: boolean = false;
+
+  statisticsDialog:boolean= false
 
   products!: any[];
 
@@ -20,22 +24,36 @@ export class HomePageComponent {
 
   statuses!: any[];
 
-  constructor(private productService: ProductService, private messageService: MessageService, private confirmationService: ConfirmationService) {}
+  constructor(
+    private productService: ProductService, 
+    private messageService: MessageService, 
+    private confirmationService: ConfirmationService,
+    private http:HttpClient,
+    private loaderService:LoaderService) {}
 
   ngOnInit() {
-      this.productService.getProducts().then((data:any) => (this.products = data));
+      this.getData()
+      this.getDataFromApi()
+  }
 
-      this.statuses = [
-          { label: 'INSTOCK', value: 'instock' },
-          { label: 'LOWSTOCK', value: 'lowstock' },
-          { label: 'OUTOFSTOCK', value: 'outofstock' }
-      ];
+  getData(){
+    this.productService.getProducts().then((data:any) => (this.products = data));
+
+    this.statuses = [
+        { label: 'COMPLETE', value: 'COMPLETE' },
+        { label: 'INPROGRESS', value: 'INPROGRESS' },
+        { label: 'DELAY', value: 'DELAY' }
+    ];
   }
 
   openNew() {
+      this.productDialog = true;
       this.product = {};
       this.submitted = false;
-      this.productDialog = true;
+  }
+
+  showStatistics(){
+    this.statisticsDialog = true
   }
 
   deleteSelectedProducts() {
@@ -46,7 +64,7 @@ export class HomePageComponent {
           accept: () => {
               this.products = this.products.filter((val) => !this.selectedProducts?.includes(val));
               this.selectedProducts = null;
-              this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Products Deleted', life: 3000 });
+              this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Task Deleted', life: 3000 });
           }
       });
   }
@@ -56,15 +74,16 @@ export class HomePageComponent {
       this.productDialog = true;
   }
 
-  deleteProduct(product: any) {
-      this.confirmationService.confirm({
+  deleteProduct(product: any) { 
+       
+      this.confirmationService.confirm({        
           message: 'Are you sure you want to delete ' + product.name + '?',
           header: 'Confirm',
           icon: 'pi pi-exclamation-triangle',
           accept: () => {
               this.products = this.products.filter((val) => val.id !== product.id);
               this.product = {};
-              this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Deleted', life: 3000 });
+              this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Task Deleted', life: 3000 });
           }
       });
   }
@@ -80,12 +99,12 @@ export class HomePageComponent {
       if (this.product.name?.trim()) {
           if (this.product.id) {
               this.products[this.findIndexById(this.product.id)] = this.product;
-              this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Updated', life: 3000 });
+              this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Task Updated', life: 3000 });
           } else {
               this.product.id = this.createId();
               this.product.image = 'product-placeholder.svg';
               this.products.push(this.product);
-              this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Created', life: 3000 });
+              this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Task Created', life: 3000 });
           }
 
           this.products = [...this.products];
@@ -102,7 +121,6 @@ export class HomePageComponent {
               break;
           }
       }
-
       return index;
   }
 
@@ -115,16 +133,34 @@ export class HomePageComponent {
       return id;
   }
 
-  // getSeverity(status: string) {
-  //     switch (status) {
-  //         case 'INSTOCK':
-  //             return 'success';
-  //         case 'LOWSTOCK':
-  //             return 'warning';
-  //         case 'OUTOFSTOCK':
-  //             return 'danger';
-  //         default:
-  //           break
-  //     }
-  // }
+  getSeverity(status: string):any {            
+      switch (status) {
+          case 'COMPLETE':
+              return 'success';
+          case 'INPROGRESS':
+              return 'warning';
+          case 'DELAY':
+              return 'danger';
+          default:
+            break
+      }
+  }
+
+
+
+  getDataFromApi() {
+    
+    const url = 'https://8fb6-136-185-177-167.ngrok-free.app/api/User/alltasks';
+
+    this.http.get(url, {
+      headers: {
+        'Accept': 'application/text'
+      }
+    })
+    .subscribe((data: any) => {
+      console.log(data); 
+    }, error => {
+      console.error('Error:', error);
+    });
+  }
 }
