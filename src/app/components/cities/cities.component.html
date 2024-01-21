@@ -1,0 +1,15 @@
+
+
+    <div class="citiesCard" *ngFor="let local of cities;let i=index" (click)="reviewCity(local.cityName)">
+            <p-card header="{{local.cityName}}" subheader="{{local.subheader}}">
+
+                <ng-template pTemplate="header">
+                    <img src="{{local.url}}" alt="city">
+                </ng-template>
+
+                <ng-template pTemplate="footer">
+                    <i class="pi pi"></i>
+                </ng-template>
+            </p-card>        
+    </div>
+

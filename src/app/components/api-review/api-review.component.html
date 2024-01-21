@@ -1,0 +1,7 @@
+<div class="userReviewCard" *ngFor="let value of userReviewArray">
+    <p-card header="{{value.reviewerName}}" subheader="Rating: {{value.rating}}/5">
+        <ng-template pTemplate="content">
+            <p>{{value.suggestion}}</p>
+        </ng-template>
+    </p-card>
+</div>

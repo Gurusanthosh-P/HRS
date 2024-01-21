@@ -1,0 +1,8 @@
+<div class="form align-items-center inline-flex flex-column"   >
+    <input type="text"  pInputText placeholder="Reviewer Name" [(ngModel)]="reviewerName">
+    <p-dropdown  [options]="dropDown" styleClass="p-dropdown" optionLabel="name" [(ngModel)]="hotelname"  placeholder="Select a Hotel"></p-dropdown>
+    <input type="number" [max]="5"  pInputText placeholder="Your Ratings out of 5" [(ngModel)]="rating">
+    <input type="text" pInputText placeholder="Your Words" [(ngModel)]="suggestion">
+    <button pButton (click)="submitForm()" >Submit</button>
+</div>
+

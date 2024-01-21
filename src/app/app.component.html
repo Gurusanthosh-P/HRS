@@ -1,0 +1,54 @@
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "white" type = "ball-spin" [fullScreen] = "true">
+  <p style="color: white" > Loading... </p>
+</ngx-spinner>
+
+
+
+<audio #audioPlayer>
+  <source src="{{music}}" type="audio/mp3">
+</audio>
+
+<video autoplay muted loop id="bgVideo">
+  <source src="/assets/images/vid.mp4" type="video/mp4">
+</video>
+
+  <!-- <div class="navbar ">
+    <nav class="flex flex-row justify-content-center mt-8">
+      <ul *ngFor="let item of navMenu">
+        <li>{{item}}</li>
+      </ul>
+    </nav>
+    <nav class="flex flex-row justify-content-end socialmedia mr-8" >
+      <ul class="justify-content-end" *ngFor="let socialmedia of navLogo">
+        <i class="pi {{socialmedia}} "></i>
+      </ul>
+    </nav>
+  </div> -->
+  <div class="navbar ">
+    <div class="logo">
+      <img src="/assets/images/mainlogo.png" alt="logo" routerLink="">
+    </div>
+    <nav>
+      <ul class="flex flex-row justify-content-center  navMenu "  >
+        <li pRipple class="shadow-2"  routerLink="" > Home</li>
+        <li pRipple class="shadow-2" (click)="cities()">Cities</li>
+        <li  pRipple class="shadow-2" (click)="login(logInOut)" >{{logInOut}}</li>
+        <li  pRipple class="shadow-2" (click)="review()"> Review</li>
+        <li  pRipple class="shadow-2" routerLink="aboutus"> About Us</li></ul>     
+    </nav>
+    
+    <nav class="flex justify-content-end socialLogo">
+      <ul *ngFor="let socialmedia of navLogo">
+        <li class="shadow-6" (click)="socialMedia(socialmedia)"  class="pi {{socialmedia}}"></li>
+      </ul> 
+    </nav>
+  </div>
+
+<router-outlet></router-outlet>
+
+
+
+
+  <div class="music">
+    <button pButton style="background-color: transparent;border-color: transparent" (click)="musicPlay()">Play Music</button>
+  </div>
